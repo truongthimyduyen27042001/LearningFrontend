@@ -27,47 +27,29 @@
           </nav>
           <!-- inner -->
          <div class="container-fluid content" id="app">
-             <ul class="container show">
-                 <li class="row content-small">
-                     <a class="col-12 col-sm-3 col-md-3 col-lg-3 hinhanh">
-                        <img src="https://tutorialzine.com/media/2016/03/css-variables.jpg" alt="">
-                     </a>
-                     <div class="col-12 col-sm-9 col-md-9 col-lg-9 title">
-                        <a href="">What You Need To Know About CSS Variables?</a>
-                     </div>
-                 </li>
-                 <hr>
-                 <li class="row content-small">
+             <div class="container disAppear" v-for="item in articles">
+                <div class="row content-small">
                     <a class="col-12 col-sm-3 col-md-3 col-lg-3 hinhanh">
-                       <img src="https://tutorialzine.com/media/2016/02/great-looking-pricing-tables.jpg" alt="">
+                       <img :src="item.src" alt="">
                     </a>
                     <div class="col-12 col-sm-9 col-md-9 col-lg-9 title">
-                       <a href="">Freebie: 4 Great Looking Pricing Tables</a>
+                       <a :href="item.url">{{item.title}}</a>
                     </div>
-                </li>
+                </div>
                 <hr>
-                <li class="row content-small">
-                    <a class="col-12 col-sm-3 col-md-3 col-lg-3 hinhanh">
-                       <img src="https://tutorialzine.com/media/2016/02/interesting-resources-february.jpg" alt="">
-                    </a>
-                    <div class="col-12 col-sm-9 col-md-9 col-lg-9 title">
-                       <a href="">20 Interesting JavaScript and CSS Libraries for February 2016</a>
-                    </div>
-                </li>
-                <hr>
-                <li class="row content-small">
-                    <a class="col-12 col-sm-3 col-md-3 col-lg-3 hinhanh">
-                       <img src="https://tutorialzine.com/media/2016/02/quick-tip-responsive-headers.png" alt="">
-                    </a>
-                    <div class="col-12 col-sm-9 col-md-9 col-lg-9 title">
-                       <a href="">Quick Tip: The Easiest Way To Make Responsive Headers</a>
-                    </div>
-                </li>
-                <hr>
-             </ul>
-             <ul class="container grid-layout disAppear">
+             </div>
+             <ul class="container grid-layout show">
                  <div class="row d-flex justify-content-center">
-                     <div class="col-12 col-sm-5 col-md-5 col-lg-5 grid-small">
+                    <!-- Test -->
+                    <div class="col-12 col-sm-5 col-md-5 col-lg-5 grid-small" v-for="item in articles">
+                        <a :href="item.url" class="hinhanh">
+                            <img :src="item.src" alt="">
+                        </a>
+                     </div>
+                    <!-- Ket thuc test -->
+
+
+                     <!-- <div class="col-12 col-sm-5 col-md-5 col-lg-5 grid-small">
                         <a href="" class="hinhanh">
                             <img src="https://tutorialzine.com/media/2016/03/css-variables.jpg" alt="">
                         </a>
@@ -86,7 +68,7 @@
                         <a href="" class="hinhanh">
                             <img src="https://tutorialzine.com/media/2016/02/quick-tip-responsive-headers.png" alt="">
                         </a>
-                    </div>
+                    </div> -->
                  </div>
              </ul>
          </div>
