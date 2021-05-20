@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearningVuejs</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+    <div id="app">
+    
+        <input type="text" v-model="currrenName">
+        <h1>{{currrenName}}</h1>
+        <button v-on:click="addToArr">Add</button>
+        <p v-for="item in arr" 
+        v-on:click="removeFromArr(item)" 
+        v-bind:style="{
+            color:item.done?'gray':'black'
+        }"
+        >
+            {{item.name}}
+        </p>
+    </div>
+</body>
+<script src="main.js"></script>
+</html>
