@@ -18,27 +18,16 @@
                     <h1>Services</h1>
                 </div>
             </div>
-            <div class="row" v-for="item in arr" v-bind:class="{ choose: item.isChoice }" v-on:click="Buy(item)">
+             <div class="row" v-for="character in charactes">
                 <div class="col-12 col-sm-6 col-md-6 col-xl">
-                    <h4>{{item.name}}</h4>
+                    <h4>{{character}}</h4>
                 </div>
                 <div class="col-12 col-sm-6 col-md-6 col-xl-6 text-end">
-                    <h4>{{item.price}}</h4>
+                    <h4>$300.00</h4>
                 </div>
-            </div>
-            <hr>
-            <div class="row total">
-                <div class="col-12 col-sm-6 col-md-6 col-xl">
-                    <h4>Total</h4>
-                </div>
-                <div class="col-12 col-sm-6 col-md-6 col-xl-6 text-end">
-                    <h4>$700.00</h4>
-                </div>
-            </div>
-            <!-- Phan hien thi cua cai list da chon  -->
-            <!-- Ket thuc phan hien thi list da chon -->
             </div>
         </div>
-        <script src="main.js"></script>
+    </div>
+        <script src="script.js"></script>
 </body>
 </html>

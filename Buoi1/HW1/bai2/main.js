@@ -1,27 +1,41 @@
 new Vue({
-    el:'app',
+    el:'#app',
     data:{
         currentName:'Thu nghiem',
+        charactes:['Duyen','Tuan','Tam','Sa'],
         arr:[
             {
-                name:'Truong Thi My Duyen',
-                done:false
+                name:'Web Development',
+                price:'$300.00',
+                isChoice:true
             },
             {
-                name:'Le Tuan',
-                done:false
+                name:'Design',
+                price:'$400.00',
+                isChoice:true
             },
             {
-                name:'Tran Thi Sa',
-                done:false
+                name:'Integration',
+                price:'$250.00',
+                isChoice:false
             },
             {
-                name:'Truong Van Tam',
-                done:false
+                name:'Training',
+                price:'$220.00',
+                isChoice:false
             }
         ],
     arrChoice:[{
 
     }]
+    },
+    methods:{
+      
+        Buy(item){
+            if(item.isChoice) item.isChoice=false;
+            else item.isChoice=true
+            this.arrChoice.push({name:item.name,price:item.price})
+           
+        }
     }
 })
