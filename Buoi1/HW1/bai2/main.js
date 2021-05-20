@@ -1,28 +1,27 @@
 new Vue({
     el:'#app',
     data:{
-        currentName:'Thu nghiem',
-        charactes:['Duyen','Tuan','Tam','Sa'],
+        totalMoney:0,
+       
         arr:[
             {
                 name:'Web Development',
-                price:'$300.00',
-                isChoice:true
+                price:300000,
+               
             },
             {
                 name:'Design',
-                price:'$400.00',
-                isChoice:true
+                price:400000,
+               
             },
             {
                 name:'Integration',
-                price:'$250.00',
-                isChoice:false
+                price:250000,
+              
             },
             {
                 name:'Training',
-                price:'$220.00',
-                isChoice:false
+                price:200000,
             }
         ],
     arrChoice:[{
@@ -30,12 +29,29 @@ new Vue({
     }]
     },
     methods:{
-      
         Buy(item){
-            if(item.isChoice) item.isChoice=false;
-            else item.isChoice=true
-            this.arrChoice.push({name:item.name,price:item.price})
-           
+        const index=this.arrChoice.findIndex(i=>i.name===item.name)
+        if(index>=0){
+            this.totalMoney-=item.price;
+            this.arrChoice.splice(index,1)
         }
+        else{
+            this.totalMoney+=item.price;
+            this.arrChoice.push({name:item.name,price:item.price})  
+            
+        }
+        },
+        checkChoose(item){
+            if(this.arrChoice.find((x)=>x.name==item.name)) return true
+           return false
+        },
+        changeMoney(price){
+            return price.toLocaleString('vi',{
+            style:'currency',currency:'VND'});
+        }
+        
     }
 })
+
+// Create our number formatter.
+
