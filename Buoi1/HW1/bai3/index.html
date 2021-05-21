@@ -30,10 +30,10 @@
              <!-- Phan list Layout -->
              <div class="container listLayout" v-for="item in articles"  v-bind:class="{show: isList}">
                 <div class="row content-small">
-                    <a class="col-12 col-sm-3 col-md-3 col-lg-3 hinhanh">
+                    <a class="col-12 col-sm-6 col-md-4 col-lg-3 hinhanh">
                        <img :src="item.src" alt="">
                     </a>
-                    <div class="col-12 col-sm-9 col-md-9 col-lg-9 title">
+                    <div class="col-12 col-sm-6 col-md-8 col-lg-9 title">
                        <a :href="item.url">{{item.title}}</a>
                     </div>
                 </div>
@@ -42,7 +42,7 @@
              <!-- Phan gridlayout -->
              <div class="container gridLayout" v-bind:class="{show: isGrid}"> 
                  <div class="row d-flex justify-content-center">
-                    <div class="col-12 col-sm-5 col-md-5 col-lg-5 grid-small" v-for="item in articles">
+                    <div class="col-12 col-sm-12 col-md-5 col-lg-5 grid-small" v-for="item in articles">
                         <a :href="item.url" class="hinhanh">
                             <img :src="item.src" alt="">
                         </a>
