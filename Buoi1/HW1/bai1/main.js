@@ -2,7 +2,7 @@ new Vue({
     el: '#app',
     
   data:{
-    activeName: '',
+    activeName: 'nothing',
       arr:[
       
           {
@@ -24,11 +24,15 @@ new Vue({
       ]
   },
   methods:{
-    
+    turnOfActive(){
+        alert(this.arr[0].active)
+    },
       turnActive(item){
-       
-        if(item.active) item.active=false;
-        else item.active=true;
+       this.arr[0].active=false
+       this.arr[1].active=false
+       this.arr[2].active=false
+       this.arr[3].active=false
+       item.active=true;
         this.activeName=item.name
       }
   }

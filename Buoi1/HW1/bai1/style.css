@@ -60,8 +60,10 @@ a:hover{
     text-decoration: none;
     font-size: 17px;
     background-color: #c4d7e0;
+    border-radius: 2px;
     color:#fff;
   }
   .message a:hover{
       color:#fff !important;
   }
+ 
