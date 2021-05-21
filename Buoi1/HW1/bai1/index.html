@@ -21,16 +21,16 @@
         <a href="#news">Projects</a>
         <a href="#contact">Services</a>
         <a href="#about">Contact</a> -->
-        <a v-for="item in arr" v-bind:style="{
-            backgroundColor:item.active?'#e35885':'#5597b4'
-        }"
+        <a class="" v-for="item in arr" v-bind:class="{active: item.active}"
         v-on:click="turnActive(item)"
         >
             {{item.name}}
         </a>
       </div>
       <div class="message">
-          <h1>You choose <span> <a href="#">{{activeName}}</a></span></h1>
+          <h1>You choose </h1>
+          <!-- <span> <a href="#">{{activeName}}</a></span> -->
+          <span><a href="">{{activeName}}</a></span>
       </div>
    </div>
       <script src="main.js"></script>

@@ -31,7 +31,10 @@ body {
     padding: 14px 30px;
     text-decoration: none;
     font-size: 17px;
-    background-color: var(--main-color);
+   background-color: #5597b4;
+}
+.active{
+  background-color: #e35885;
 }
 a:hover{
     color:#fff !important;
@@ -47,11 +50,11 @@ a:hover{
       align-items: center;
   }
   .message h1{
-      margin:auto;
       color: #84979e;
+      font-size: 25px;
+      margin-right:20px;
   }
   .message a{
-   
     text-align: center;
    padding:10px;
     text-decoration: none;
