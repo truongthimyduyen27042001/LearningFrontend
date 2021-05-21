@@ -25,7 +25,7 @@
 .navbar-inner button:focus{
     box-shadow: none !important;
 }
-.navbar-active{
+.navActive{
     background-color: #b7428c !important ;
 }
 /* Phan content */

@@ -1,7 +1,7 @@
 new Vue({
     el:'#app',
     data:{
-       isLayout:true,
+       isList:true,
        isGrid:false,
         articles: [{
             
@@ -38,13 +38,12 @@ new Vue({
     },
     methods:{
         turnList(){
-            this.isLayout=true,
+            this.isList=true,
             this.isGrid=false
         },
         turnGrid(){
             this.isGrid=true
-            this.isLayout=false
-          
+            this.isList=false
         }
         
     }
