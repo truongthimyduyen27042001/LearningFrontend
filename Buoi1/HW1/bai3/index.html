@@ -13,21 +13,22 @@
     <!-- test -->
 </head>
 <body>
-    <div class="container-fluid web-inner">
+    <div class="container-fluid web-inner" id="app">
         <!-- Phan navbar -->
           <nav class="navbar">
             <div class="container-fluid navbar-inner">
-              <button class="navbar-toggler navbar-active" type="button">
+              <button class="navbar-toggler navbar-active" type="button" v-on:click="turnList">
                 <i class="fas fa-list"></i>
               </button>
-              <button class="navbar-toggler" type="button">
+              <button class="navbar-toggler" type="button" v-on:click="turnGrid">
                 <i class="fas fa-th"></i>
               </button>
             </div>
           </nav>
           <!-- inner -->
-         <div class="container-fluid content" id="app">
-             <div class="container disAppear" v-for="item in articles">
+         <div class="container-fluid content" >
+             <!-- Phan list Layout -->
+             <div class="container listLayout" v-for="item in articles"  v-bind:class="{show: isLayout}">
                 <div class="row content-small">
                     <a class="col-12 col-sm-3 col-md-3 col-lg-3 hinhanh">
                        <img :src="item.src" alt="">
@@ -38,39 +39,16 @@
                 </div>
                 <hr>
              </div>
-             <ul class="container grid-layout show">
+             <!-- Phan gridlayout -->
+             <div class="container gridLayout" v-bind:class="{show: isGrid}"> 
                  <div class="row d-flex justify-content-center">
-                    <!-- Test -->
                     <div class="col-12 col-sm-5 col-md-5 col-lg-5 grid-small" v-for="item in articles">
                         <a :href="item.url" class="hinhanh">
                             <img :src="item.src" alt="">
                         </a>
-                     </div>
-                    <!-- Ket thuc test -->
-
-
-                     <!-- <div class="col-12 col-sm-5 col-md-5 col-lg-5 grid-small">
-                        <a href="" class="hinhanh">
-                            <img src="https://tutorialzine.com/media/2016/03/css-variables.jpg" alt="">
-                        </a>
-                     </div>
-                     <div class="col-12 col-sm-5 col-md-5 col-lg-5 grid-small">
-                        <a href="" class="hinhanh">
-                            <img src="https://tutorialzine.com/media/2016/02/great-looking-pricing-tables.jpg" alt="">
-                        </a>
                     </div>
-                    <div class="col-12 col-sm-5 col-md-5 col-lg-5 grid-small">
-                        <a href="" class="hinhanh">
-                            <img src="https://tutorialzine.com/media/2016/02/interesting-resources-february.jpg" alt="">
-                        </a>
-                     </div>
-                     <div class="col-12 col-sm-5 col-md-5 col-lg-5 grid-small">
-                        <a href="" class="hinhanh">
-                            <img src="https://tutorialzine.com/media/2016/02/quick-tip-responsive-headers.png" alt="">
-                        </a>
-                    </div> -->
                  </div>
-             </ul>
+             </div>
          </div>
     </div>
     <script src="main.js"></script>

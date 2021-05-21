@@ -1,9 +1,8 @@
 new Vue({
     el:'#app',
     data:{
-        navItem:[{
-            "Choice":false
-        }],
+       isLayout:true,
+       isGrid:false,
         articles: [{
             
             "title": "What You Need To Know About CSS Variables",
@@ -38,7 +37,15 @@ new Vue({
 
     },
     methods:{
-     
+        turnList(){
+            this.isLayout=true,
+            this.isGrid=false
+        },
+        turnGrid(){
+            this.isGrid=true
+            this.isLayout=false
+          
+        }
         
     }
 })

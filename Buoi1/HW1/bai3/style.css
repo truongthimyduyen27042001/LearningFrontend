@@ -32,8 +32,8 @@
 .content{
     padding-top:50px;
 }
-ul{
-    list-style: none;
+.listLayout{
+    display: none;
 }
 .hinhanh{
     overflow: hidden;
@@ -58,18 +58,22 @@ ul{
 .disAppear{
     display: none;
 }
-.show{
-    display: block;
-}
+
 /* Phan grid lay out */
-.grid-layout .hinhanh{
+.gridLayout{
+    display: none;
+}
+.gridLayout .hinhanh{
     background-color: red;
 }
-.grid-layout .hinhanh img{
+.gridLayout .hinhanh img{
     width:100%;
     height:400px;
     object-fit: fill;
 }
 .grid-small{
     padding:3px;
+}
+.show{
+    display: block;
 }
