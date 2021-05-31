@@ -1,0 +1,449 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+
+:root{
+    --primary-gdnt:linear-gradient(#7F00FF, #cc30ff);
+    --h2size:35px;
+    --primary:#7F00FF;
+    --text:#555555;
+    --time-font:'Oswald', sans-serif;
+    --mweight:500;
+    --shadow-img:linear-gradient(#7F00FF, #cc30ff);
+}
+*{
+   margin:0;
+   padding:0;
+   font-family: 'Roboto', sans-serif;
+}
+
+.pt-25 {
+    padding-top:25px!important;
+}
+.w-30 {
+    width:30%!important;
+}
+.border-tim {
+    border: 2px solid #7F00FF;
+}
+.py-14 {
+    padding-top: 14px!important;
+    padding-bottom: 14px!important;
+}
+.py-35 {
+    padding-right: 35px!important;
+    padding-left: 35px!important;
+}
+.px-25{
+    padding-top:25px !important;
+    padding-bottom:25px!important;
+}
+.rounded {
+    border-radius: 50px!important;
+}
+.btn-ouline{
+    color:$primary!important;
+    
+}
+.d-i-block {
+    display:inline-block;
+}
+.change-my-color {
+    fill:#7F00FF!important;
+}
+.header-bg{
+    background:url(https://mironmahmud.com/ushno/assets/img/assets-bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 25px 0px 0px;
+}
+// phan navbar-list
+ul{
+    list-style: none !important;
+    display: inline-block;
+}
+
+.navbar-list{
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+.navbar-item span{
+    font-size:16px;
+    color:#555555;
+}
+.navbar-link{
+    font-weight: 500;
+    padding: 25px 0px;
+    color: var(--body);
+    text-transform: capitalize;
+    display: flex;
+}
+.navbar-link svg{
+    margin-right:5px;
+}
+.navbar-link span{
+    font-weight: 500;
+}
+// phan player
+.navbar-item{
+    position:relative;
+}
+.navbar-player{
+    margin: 0px 120px;
+    position: relative;
+}
+.navbar-player .player {
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    z-index: 1;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    -webkit-box-shadow: 0px 7px 13px 0px rgb(0 0 0 / 15%);
+    box-shadow: 0px 7px 13px 0px rgb(0 0 0 / 15%);
+    background: url(https://mironmahmud.com/ushno/assets/img/player-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 15px solid var(--white);
+}
+.player-btn {
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--banner-play);
+    -webkit-animation: mahmud 2s linear infinite;
+    animation: mahmud 2s linear infinite;
+}
+.player-btn i {
+    font-size: 40px;
+    color: var(--white);
+    text-shadow: 5px 5px 0px rgb(0 0 0 / 30%);
+}
+.fa-play:before {
+    content: "\f04b";
+}
+/* // phan single banner */
+.single-banner{
+    background: url(https://mironmahmud.com/ushno/assets/img/single-banner.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 155px 0px 90px;
+}
+.single-content{
+    text-align: center!important;
+}
+.single-content h2{
+    font-size:38px;
+    margin-bottom:10px;
+    color:#fff;
+    text-shadow:2px 3px 8px rgb(0 0 0 / 10%);
+}
+.single-detail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+.single-detail .li a{
+    color: var(--white);
+    text-transform: capitalize;
+    text-shadow: 2px 3px 8px rgb(0 0 0 / 10%);
+}
+.breadcrumb{
+   display: flex;
+    justify-content: center;
+    padding: 0px;
+    margin-bottom: 0px;
+    background: none;
+    border-radius: 0px;
+    color:#fff;
+}
+.breadcrumb-item+.breadcrumb-item::before {
+    display: inline-block;
+    padding-right: .5rem;
+    color: #fff;
+    content: "/";
+}
+// phan gioi thieu 
+section{
+    padding:115px 0px 0px;
+}
+.about-img{
+    position:relative;
+}
+.about-1 img{
+    width:75%;
+    border-radius: 50%;
+    box-shadow:0px 0px 30px 20px rgb(0 0 0 / 10%);
+}
+img {
+    vertical-align: middle;
+}
+.about-2{
+    position: absolute;
+    bottom: 0px;
+    border-radius: 50%;
+    border: 10px solid #fff;
+    left: 35%;
+    background: red;
+}
+.about-2 img{
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+}
+.about-2::before {
+    position: absolute;
+    content: "";
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(91,68,114,0.2)), to(rgba(203,48,255,0.3)));
+    background: linear-gradient(rgba(91,68,114,0.2), rgba(203,48,255,0.3));
+}
+
+// about-content 
+.about-content{
+    margin-left:50px;
+}
+.about-content h2{
+    margin-bottom:30px;
+    font-size: 35px;
+    font-weight: 700;
+    text-transform: capitalize;
+    letter-spacing: -0.8px;
+    line-height: 43px;
+}
+.about-content h2 span{
+    font-size:60px;
+    line-height:68px;
+    text-transform:uppercase;
+    background: var(--primary-gdnt);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.about-content p{
+    margin-bottom:25px;
+    font-size:16px;
+}
+.about-content h3{
+    position:relative;
+    margin-left:50px;
+    line-height:32px;
+    font-weight:600;
+    font-size:24px;
+}
+.about-content h3:before{
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: -50px;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 30px;
+    height: 3px;
+    border-radius: 30px;
+    background: var(--primary-gdnt);
+}
+/* // phan list danh sach bai hat */
+.music-list-content{
+    text-align:center;
+    margin-bottom:60px;
+}
+.music-list-content h2{
+  background-color:var(--primary-gdnt);
+  position:relative;
+  font-size:var(--h2size);
+  background: var(--primary-gdnt);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
+.music-list-content h2::before {
+    position: absolute;
+    content: "";
+    bottom: -8px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    border-radius: 30px;
+    background: var(--primary-gdnt);
+  
+}
+.music-list-content h2::after {
+    position: absolute;
+    content: "";
+    bottom: -15px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 30px;
+    height: 2px;
+    border-radius: 30px;
+    background: var(--primary-gdnt);
+   
+}
+.show-menu{
+    border-bottom: 1px solid #dee2e6 !important;
+
+}
+.nav{
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+.nav-tabs{
+    border-bottom: 1px solid #dee2e6;
+}
+.nav-tabs li {
+    width: 100%;
+}
+
+.nav-tabs li .active {
+    color: var(--white) !important;
+    background: var(--primary-gdnt);
+    border-color: var(--primary) !important;
+}
+.nav-tabs li .nav-link {
+    width: 100%;
+    border: none;
+    padding: 10px 0px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text);
+    border-bottom: 3px solid transparent;
+    text-shadow: 2px 3px 8px rgb(0 0 0 / 10%);
+}
+
+.nav-tabs .nav-link {
+    border: 1px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+}
+.nav-link {
+    display: block;
+    padding: .5rem 1rem;
+}
+// hinh anh album
+.music-list-item{
+    padding:30px 0px 0px;
+}
+.show-card{
+    margin-bottom:30px;
+ 
+}
+.show-content{
+    position:relative;
+    margin-bottom:38px;
+}
+.show-bg{
+    overflow: hidden;
+    border-radius: 10px;
+   
+}
+.show-bg img{
+    width:100%;
+    border-radius:10px;
+    transition:1.5s!important;
+}
+.show-overlay{
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+    border-radius:10px;
+    background: linear-gradient(rgba(127, 0, 255, 0.5), rgba(225, 0, 255, 0.5)) !important;
+}
+.show-time{
+    position:absolute;
+    top:45%;
+    left:50%;
+    width:100%;
+    text-align:center;
+    transform:translate(-50%,-50%);
+}
+.show-time p{
+    color:#fff;
+    font-size:20px;
+    margin-bottom:7px;
+    font-family: var(--time-font);
+}
+.show-time h4{
+    color:#fff;
+    font-weight: var(--mweight);
+}
+.show-host{
+    position: absolute;
+    bottom: -30px;
+    width: 100%;
+    display:flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.show-host li a img{
+    width:60px;
+    border-radius:50%;
+    border:5px solid #fff;
+  
+
+}
+.show-host .left img{
+    transform: translateX(50%);
+    z-index:2;
+}
+.show-host .right img{
+    transform: translateX(-50%);
+}
+/* // z-index của các hình  */
+.show-host li:nth-child(1){
+    z-index:3;
+}
+.show-host li:nth-child(2){
+    z-index:5;
+}
+.show-host li:nth-child(3){
+    z-index:7;
+}
+/* // img zoom when hover  */
+.show-card:hover .show-bg img{
+    transform:scale(1.2);
+}

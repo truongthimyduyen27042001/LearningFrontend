@@ -9,46 +9,49 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
+<body class="body-inner">
     <!-- phan navbar -->
-   <div class="container">
-       <div class="row">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-            <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse d-lg-flex justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#aboutMe">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#services">Service</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Porfolio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#blog">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
-                </ul>
-            </div>
-            </div>
-        </nav>
-       </div>
-   </div>
+   <div class="container-fluid">
+        <div class="row">
+         <nav class="navbar navbar-expand-lg fixed-top">
+             <div class="container-fluid navbar-inner">
+             <a class="navbar-brand" href="#">
+                 <img src="https://i.pinimg.com/564x/2b/ee/3a/2bee3af317bfdc9f1c4a35f7a2427890.jpg" alt="">
+                <h4>TMD Shop</h4>
+             </a>
+             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                 <span class="navbar-toggler-icon"></span>
+             </button>
+             <div class="collapse navbar-collapse d-lg-flex justify-content-end" id="navbarNav">
+                 <ul class="navbar-nav">
+                 <li class="nav-item">
+                     <a class="nav-link active" aria-current="page" href="#">Home</a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="#aboutMe">About</a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="#services">Service</a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="#">Porfolio</a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="#blog">Blog</a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="#">Contact</a>
+                 </li>
+                 </ul>
+             </div>
+             </div>
+         </nav>
+        </div>
+    </div>
    <!-- phan home  -->
-   <section class="mh-home home-2-img" id="home">
+   <section class=" home-2-img" id="home">
        <div class="img-overlay img-color-overlay">
           <div class="container">
             <div class="row home-inner">
@@ -57,24 +60,18 @@
                         <span>Hello I'm</span>
                         <h2>Alex Johnson</h2>
                         <h4>Product Designer</h4>
-                        <ul>
-                            <li>
-                                <a href="">
-                                    <i class="far fa-envelope"></i>
-                                </a>
-                                <span>getemail@email.com</span>
+                        <ul class="user-contact">
+                            <li> 
+                                <i class="far fa-envelope"></i>
+                                <a href="">getemail@email.com</a>
                             </li>
                             <li>
-                                <a href="">
-                                    <i class="fas fa-phone-alt"></i>
-                                </a>
-                                <span>+12 986 987 7867</span>
+                                <i class="fas fa-phone-alt"></i>
+                                <a href="">+12 986 987 7867</a>
                             </li>
                             <li>
-                                <a href="">
-                                    <i class="fas fa-map-marker"></i>
-                                </a>
-                                <span>37, Pollsantnd,New York, United State</span>
+                                <i class="fas fa-map-marker"></i>
+                                <a href="">37, Pollsantnd,New York, United State</a>
                             </li>
                         </ul>
                         <div class="infor-social">
@@ -94,5 +91,341 @@
           </div>
        </div>
    </section>
+   <!-- phan about -->
+   <section class="about-inner" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                    <div class="mh-about-img shadow-2 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s" style="visibility: visible;">
+                        <img src="http://cvresumetemplate.com/maha-personal-cv-resume-html-template/assets/images/ab-img.png" alt="" class="img-fluid">
+                    </div>                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                    <div class="about-inner-small">
+                        <h2 class="content">About Me</h2>
+                        <p>Hello, I’m a Patrick, web-developer based on Paris. I have rich experience in web site design & building and customization. Also I am good at</p>
+                        <ul class="soft-skill">
+                            <li><span>php</span></li>
+                            <li><span>html</span></li>
+                            <li><span>css</span></li>
+                            <li><span>php</span></li>
+                            <li><span>wordpress</span></li>
+                            <li><span>React</span></li>
+                            <li><span>Javascript</span></li>
+                        </ul>
+                       <a href="" class='btn btn-fill'>
+                           Download CV
+                           <i class="fas fa-download"></i>
+                       </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+   </section>
+   <!-- phan what i do  -->
+   <section class="what" id="what">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                    <h2 class="content">What I do</h2>
+                </div>
+                <div class="col-12 col-sm-4 col-md-4 col-lg-4 what-small">
+                   <div class="service-item">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>UI Design</h3>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi, a commodi! Dolorem doloremque dignissimos unde expedita iure quia quae quas, modi minus blanditiis vel optio dolor sed dolorum rerum accusamus!</p>
+                   </div>
+    
+                </div>
+                <div class="col-12 col-sm-4 col-md-4 col-lg-4 what-small">
+                   <div class="service-item">
+                    <i class="fas fa-code"></i>
+                    <h3>UI Design</h3>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi, a commodi! Dolorem doloremque dignissimos unde expedita iure quia quae quas, modi minus blanditiis vel optio dolor sed dolorum rerum accusamus!</p>
+                   </div>
+                </div>
+                <div class="col-12 col-sm-4 col-md-4 col-lg-4 what-small">
+                   <div class="service-item">
+                    <i class="far fa-object-ungroup"></i>
+                    <h3>UI Design</h3>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi, a commodi! Dolorem doloremque dignissimos unde expedita iure quia quae quas, modi minus blanditiis vel optio dolor sed dolorum rerum accusamus!</p>
+                   </div>   
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+    <!-- phan project -->
+    <section class="mh-featured-project" id="project">
+        <div class="img-color-overlay">
+            <div class="container">
+                <div class="row section-separator">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12"><h2 class="content">Featured Projects</h2></div>
+                    <!-- phan noi dung project  -->
+                    <div class="col-12 col-sm-7 col-md-7 col-lg-7 project-img">
+                        <img src="http://cvresumetemplate.com/maha-personal-cv-resume-html-template/assets/images/p-2.png" alt="">
+                    </div>
+                    <div class="col-12 col-sm-5 col-md-5 col-lg-5 project-info">
+                        <h4>WEB DESIGN</h4>
+                        <h2>WRAP</h2>
+                        <span>DESIGN & DEVELOPMENT</span>
+                        <p>Stamp is a clean and elegant Multipurpose Landing Page Template. 
+                            It will fit perfectly for Startup, Web App or any type of Web Services.
+                            It has 4 background styles with 6 homepage styles. 6 pre-defined color scheme. 
+                            All variations are organized separately so you can use / customize the template very easily.</p>
+                        <a href="" class="btn btn-fill">
+                            View Details
+                        </a>
+                        <div class="comment">
+                            <p>"Excellent Template - suits my needs perfectly whilst allowing me to learn some new technology first hand"</p>
+                            <p class="author">- Shane Kavanagh</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- phan skill -->
+    <section class="mh-skills" id="skill">
+        <div class="container">
+            <div class="row section-skill">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                  <div class="skill-inner">
+                      <h3 class="text-center">Technical Skills</h3>
+                      <div class="each-skills">
+                        <div class="candidatos">
+                            <div class="parcial">
+                                <div class="info">
+                                    <div class="nome">Javascript</div>
+                                    <div class="percentagem-num">86%</div>
+                                </div>
+                                <div class="progressBar">
+                                    <div class="percentagem" style="width: 86%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="candidatos">
+                            <div class="parcial">
+                                <div class="info">
+                                    <div class="nome">NodeJS</div>
+                                    <div class="percentagem-num">20%</div>
+                                </div>
+                                <div class="progressBar">
+                                    <div class="percentagem" style="width: 20%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="candidatos">
+                            <div class="parcial">
+                                <div class="info">
+                                    <div class="nome">Java</div>
+                                    <div class="percentagem-num">46%</div>
+                                </div>
+                                <div class="progressBar">
+                                    <div class="percentagem" style="width: 46%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="candidatos">
+                            <div class="parcial">
+                                <div class="info">
+                                    <div class="nome">Python</div>
+                                    <div class="percentagem-num">38%</div>
+                                </div>
+                                <div class="progressBar">
+                                    <div class="percentagem" style="width: 38%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="candidatos">
+                            <div class="parcial">
+                                <div class="info">
+                                    <div class="nome">PHP</div>
+                                    <div class="percentagem-num">17%</div>
+                                </div>
+                                <div class="progressBar">
+                                    <div class="percentagem" style="width: 17%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="candidatos">
+                            <div class="parcial">
+                                <div class="info">
+                                    <div class="nome">CSS</div>
+                                    <div class="percentagem-num">98%</div>
+                                </div>
+                                <div class="progressBar">
+                                    <div class="percentagem" style="width: 98%;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                      </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                    <div class="profess-skill">
+                        <h3>Professional Skills</h3>
+                    </div>
+                    <ul class="mh-professional-progress">
+                        <li>
+                            <div class="mh-progress mh-progress-circle active" data-progress="95" style="position: relative"><svg viewBox="0 0 100 100"><path d="M 50,50 m 0,-47.5 a 47.5,47.5 0 1 1 0,95 a 47.5,47.5 0 1 1 0,-95" stroke="#eee" stroke-width="5" fill-opacity="0"></path><path d="M 50,50 m 0,-47.5 a 47.5,47.5 0 1 1 0,95 a 47.5,47.5 0 1 1 0,-95" stroke="#555" stroke-width="5" fill-opacity="0" style="stroke-dasharray: 298.493, 298.493; stroke-dashoffset: 14.9247;"></path></svg><p class="progressbar-text" style="position: absolute; top: 50%; left: 50%; padding: 0px; margin: 0px; transform: translate(-50%, -50%); color: rgb(85, 85, 85);color:#fff">95%</p></div>
+                            <div class="pr-skill-name">Communication</div>
+                        </li>
+                        <li>
+                            <div class="mh-progress mh-progress-circle active" data-progress="55" style="position: relative;"><svg viewBox="0 0 100 100"><path d="M 50,50 m 0,-47.5 a 47.5,47.5 0 1 1 0,95 a 47.5,47.5 0 1 1 0,-95" stroke="#eee" stroke-width="5" fill-opacity="0"></path><path d="M 50,50 m 0,-47.5 a 47.5,47.5 0 1 1 0,95 a 47.5,47.5 0 1 1 0,-95" stroke="#555" stroke-width="5" fill-opacity="0" style="stroke-dasharray: 298.493, 298.493; stroke-dashoffset: 134.322;"></path></svg><p class="progressbar-text" style="position: absolute; top: 50%; left: 50%; padding: 0px; margin: 0px; transform: translate(-50%, -50%); color: rgb(85, 85, 85); color:#fff">55%</p></div> 
+                            <div class="pr-skill-name">Team Work</div>
+                        </li>
+                        <li>
+                            <div class="mh-progress mh-progress-circle active" data-progress="86" style="position: relative;"><svg viewBox="0 0 100 100"><path d="M 50,50 m 0,-47.5 a 47.5,47.5 0 1 1 0,95 a 47.5,47.5 0 1 1 0,-95" stroke="#eee" stroke-width="5" fill-opacity="0"></path><path d="M 50,50 m 0,-47.5 a 47.5,47.5 0 1 1 0,95 a 47.5,47.5 0 1 1 0,-95" stroke="#555" stroke-width="5" fill-opacity="0" style="stroke-dasharray: 298.493, 298.493; stroke-dashoffset: 41.789;"></path></svg><p class="progressbar-text" style="position: absolute; top: 50%; left: 50%; padding: 0px; margin: 0px; transform: translate(-50%, -50%); color: rgb(85, 85, 85);color:#fff ">86%</p></div>
+                            <div class="pr-skill-name">Project Management</div>
+                        </li> 
+                        <li>
+                            <div class="mh-progress mh-progress-circle active" data-progress="60" style="position: relative;"><svg viewBox="0 0 100 100"><path d="M 50,50 m 0,-47.5 a 47.5,47.5 0 1 1 0,95 a 47.5,47.5 0 1 1 0,-95" stroke="#eee" stroke-width="5" fill-opacity="0"></path><path d="M 50,50 m 0,-47.5 a 47.5,47.5 0 1 1 0,95 a 47.5,47.5 0 1 1 0,-95" stroke="#555" stroke-width="5" fill-opacity="0" style="stroke-dasharray: 298.493, 298.493; stroke-dashoffset: 119.397;"></path></svg><p class="progressbar-text" style="position: absolute; top: 50%; left: 50%; padding: 0px; margin: 0px; transform: translate(-50%, -50%); color: rgb(85, 85, 85); color:#fff">60%</p></div>
+                            <div class="pr-skill-name">Creativity</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- phan experience -->
+    <section class="mh-experience" id="experience">
+        <div class="img-color-overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                        <div class="education">
+                            <h3>Education</h3>
+                            <div class="education-inner">
+                                <div class="edu-small">
+                                    <h4>
+                                        Art & Multimedia From 
+                                        <a href="">Oxford University</a>
+                                    </h4>
+                                    <div class="edu-time">
+                                        2005-2008
+                                    </div>
+                                    <p>It is a long time established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Inspum</p>
+                                </div>
+                                <div class="edu-small">
+                                    <h4>
+                                        Art & Multimedia From 
+                                        <a href="">Oxford University</a>
+                                    </h4>
+                                    <div class="edu-time">
+                                        2005-2008
+                                    </div>
+                                    <p>It is a long time established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Inspum</p>
+                                </div>
+                                <div class="edu-small">
+                                    <h4>
+                                        Art & Multimedia From 
+                                        <a href="">Oxford University</a>
+                                    </h4>
+                                    <div class="edu-time">
+                                        2005-2008
+                                    </div>
+                                    <p>It is a long time established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Inspum</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                        <div class="education">
+                            <h3>Work Experience</h3>
+                            <div class="education-inner">
+                                <div class="edu-small">
+                                    <h4>
+                                        UI/UX Designer 
+                                        <a href="">IronSketch</a>
+                                    </h4>
+                                    <div class="edu-time">
+                                        2005-2008
+                                    </div>
+                                    <ul>Responsibility :
+                                        <li>
+                                            <i class="fas fa-circle"></i>
+                                            Validate CSS
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-circle"></i>
+                                            Project Management
+                                        </li>
+                                    </ul>
+                                    
+                                </div>
+                                <div class="edu-small">
+                                    <h4>
+                                        UI/UX Designer 
+                                        <a href="">IronSketch</a>
+                                    </h4>
+                                    <div class="edu-time">
+                                        2005-2008
+                                    </div>
+                                    <ul>Responsibility :
+                                        <li>
+                                            <i class="fas fa-circle"></i>
+                                            Validate CSS
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-circle"></i>
+                                            Project Management
+                                        </li>
+                                    </ul>
+                                    
+                                </div>
+                                <div class="edu-small">
+                                    <h4>
+                                        UI/UX Designer 
+                                        <a href="">IronSketch</a>
+                                    </h4>
+                                    <div class="edu-time">
+                                        2005-2008
+                                    </div>
+                                    <ul>Responsibility :
+                                        <li>
+                                            <i class="fas fa-circle"></i>
+                                            Validate CSS
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-circle"></i>
+                                            Project Management
+                                        </li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- phan porforlio -->
+    <section class="mh-porfolio" id="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                    <h2 class="content">Recent Porfolio</h2>
+                </div>
+               <div class="part col-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="portfolio-nav">
+                    <ul>
+                        <li><span>All Categories</span></li>
+                        <li><span>Web Designer</span></li>
+                        <li><span>Branding</span></li>
+                        <li><span>Mockups</span></li>
+                        <li><span>Photography</span></li>
+                    </ul>
+                </div>
+                <div class="project-gallery">
+                    
+                </div>
+               </div>
+            </div>
+        </div>
+    </section>
+    <script src="main.js"></script>
 </body>
 </html>
