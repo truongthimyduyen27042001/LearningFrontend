@@ -1,7 +1,7 @@
 <template>
     <div>
+
          <div class="row list-small" v-for="item in lists" :key="item.label">
-                  
                   <div class="col-12 col-sm-8 col-md-8 col-lg-8">
                     <input type="checkbox" :checked="item.done" v-model="item.done">
                     <label for="" :class="item.done?'itemDone':''" @click="goDone(item)">{{item.label}}</label>
@@ -26,6 +26,11 @@
                         <i class="fas fa-minus"></i>
                       </div>
                   </div>
+                  <!-- <div class="col-12 col-sm-12 col-md-12 col-lg-12"  :style="item.edit?'display:block':'display:none'">
+                    <p class="pl-1">* This is exist</p>
+                  </div> -->
+                 
+                  
         </div>
     </div>
 </template>
@@ -40,6 +45,11 @@ export default {
           require:false,
           default:null
       },
+       checkError:{
+        type:Boolean,
+        require:false,
+        default:null
+      }
      
   },
   data () {
@@ -56,6 +66,7 @@ export default {
           this.$emit('goDelete',val)
       },
       goChangeLabel(item){ 
+          console.log(this.checkError)
             this.$emit('goChangeLabel',item,this.editLabel)
             this.editLabel=''
       },
@@ -66,6 +77,15 @@ export default {
           this.$emit('goDone',item)
       }
   },
+  computed:{
+    checkValid(){
+      if(this.checkError) return 'This label is exist'
+    }
+  }
 }
 
 </script>
+
+<style>
+
+</style>

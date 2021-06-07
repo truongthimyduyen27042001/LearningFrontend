@@ -10,7 +10,19 @@
       </div>
       <div class="todolist">
         <createItem class="row" v-on:addList="handleAddList" :newLabel="newLabel" :checkError="checkError"></createItem>
-       <div> <h3 class="text-center">{{checkEmpty}}</h3></div>
+       <div  :style="empty?'display:block':'display:none'">
+         <h3 class="text-center">This is empty</h3>
+      </div>
+       <div class="controlList contaner" :style="empty?'display:none':'display:block'">
+            <div class="row">
+              <div class="col-12 col-sm-6 d-flex justify-content-center">
+                <button type="button" class="btn btn-primary" @click="handleDeleteAll">Delete All</button>
+              </div>
+               <div class="col-12 col-sm-6 d-flex justify-content-center">
+                 <h2>Total : {{total}}</h2>
+              </div>
+            </div>
+        </div>
         <Items class="lists" 
             v-on:goEdit="handleEdit" 
             v-on:goDelete="handleDelete"
@@ -18,6 +30,7 @@
             v-on:goStopEdit="handleStopEdit"
             v-on:goDone="handleDone"
             :lists="listdata"
+            :checkError="checkError"
          > 
           
         </Items>
@@ -57,7 +70,7 @@ export default {
           this.$emit('changeAuthor',authorNew.value)
       },
       handleAddList(val){
-              if(this.listdata.find(item=>item.label===val)){
+          if(this.listdata.find(item=>item.label===val)){
               console.log('Da ton tai')
               this.checkError=true
             }
@@ -67,48 +80,55 @@ export default {
                 done:false,
                 edit:false
               })
+              this.checkError=false
          }         
       },
       handleEdit(item){
          item.edit=true
       },
       handleDelete(val){
-        console.log(val)
         let index=this.listdata.findIndex(item=>item.label===val) 
           if(index>=0){
                 this.listdata.splice(index,1)
             }
       },
       handleChangeLabel(item,val){
-        console.log(val)
          if(val===''){
             console.log('khong the them')
-            
+            this.checkError=true
+
         }
-        else {
+        else { 
             console.log('co the them')
             let index=this.listdata.findIndex(item=>item.label===val)
             if(index>=0){
                 console.log('da ton ton')
             }
             else {
-                item.label=val      
+                item.label=val  
+                this.checkError=false    
             }
         }
-          item.edit=false    
+          item.edit=false  
+
       },
       handleStopEdit(item){
          item.edit=false
       },
       handleDone(item){
         item.done=true
+      },
+      handleDeleteAll(){
+        this.listdata=[]
       }
   },
   computed:{
-    checkEmpty(){
-     if(this.listdata.length==0) return 'This is empty'
-        else return ''
-  
+    total(){
+      return this.listdata.length
+    },
+    empty(){
+      if(this.listdata.length==0) return true
+      else return false
     }
   },
   components:{
@@ -151,6 +171,7 @@ export default {
 .icon{
       display: flex;
     align-items: center;
+    cursor: pointer;
 }
 .icon{
   border-radius:10px;
@@ -181,5 +202,13 @@ export default {
 }
 .d-flex{
   display:flex;
+}
+.pl-1{
+  padding-left:10px;
+  color:#14ffad;
+}
+.controlList{
+  padding-top:10px;
+  padding-bottom:10px;
 }
 </style>
