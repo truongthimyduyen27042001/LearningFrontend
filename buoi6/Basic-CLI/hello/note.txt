@@ -1,0 +1,6 @@
+1. Development
+- Babel 
+---> ES6 phiên bản mới của ES5
+- Webpack 
+--->Công cụ giúp đóng gói code, đóng gói mã nguồn
+2. Production

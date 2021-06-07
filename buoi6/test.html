@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TestGiohang</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Header</h1>
+    </header>
+    <div class="container">
+        <div class="list-blog">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, illum! Rem aspernatur numquam corrupti ex illo accusantium in rerum qui! Blanditiis velit voluptas officiis corrupti fuga id quisquam eligendi maiores?</p>
+        </div>
+        <div id="app">
+            <div class="cart">Giỏ hàng ({{cardNumber}})</div>
+            <div class="product">
+                <div class="product-image">
+                    <div class="image">
+                        <img :src="getProduct.image" alt="">
+                    </div>
+                </div>
+                <div class="product-content">
+                    <h3 class="title">
+                        Áo thun nam thể thao hàng VNXK vải dày mịn - Vải Đốm
+                    </h3>
+                    <p class="brand">Thương hiệu: No brand</p>
+                    <p class="quantity" v-if="getProduct.quantity>0">Còn lại : {{getProduct.quantity}} cái áo</p>
+                    <p class="quantity" v-else>Sản phẩm hết hàng</p>
+                    <div class="wrapper-price">
+                        <div class="final-price">{{formatFinalPrice}}</div>
+                        <div class="origin-price">{{formatOriginalPrice}}</div>
+                        <div class="sale-price">{{sale*100}} %</div>
+                    </div>
+                    <div class="wrapper-color">
+                        <div class="text">Màu sắc</div>
+                        <div class="list-color">
+                            <p class="color-text">{{getProduct.textColor}}</p>
+                            <ul>
+                                <li 
+                                    v-for="(item, index) in listProduct"
+                                   
+                                    v-bind:key="index"
+                                    v-on:click="handleClickColor($event,index)"
+                                >
+                                    <img v-bind:src="item.image" v-bind:alt="item.textColor">
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <button 
+                        v-on:click="handleAddToCart"
+                        class="add-to-cart">Add to cart</button>
+                </div>
+            </div>
+            <div class="description">
+                <ul class="extra-info">
+                    <li v-for="des in listDesc">{{des}}</li>
+                    
+                </ul>
+                <h2>Chất liệu bền chặt</h2>
+                <div v-html="description">
+                  
+                </div>
+                <div v-html="testDescription">
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="test.js"></script>
+</body>
+</html>
