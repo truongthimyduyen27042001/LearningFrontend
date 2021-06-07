@@ -9,7 +9,8 @@
         </div>
       </div>
       <div class="todolist">
-        <createItem class="row" v-on:addList="handleAddList" :newLabel="newLabel"></createItem>
+        <createItem class="row" v-on:addList="handleAddList" :newLabel="newLabel" :checkError="checkError"></createItem>
+       <div> <h3 class="text-center">{{checkEmpty}}</h3></div>
         <Items class="lists" 
             v-on:goEdit="handleEdit" 
             v-on:goDelete="handleDelete"
@@ -17,7 +18,8 @@
             v-on:goStopEdit="handleStopEdit"
             v-on:goDone="handleDone"
             :lists="listdata"
-            > 
+         > 
+          
         </Items>
       </div>
 
@@ -43,47 +45,8 @@ export default {
     return {
       title: 'Hello Home',
       newLabel:'',
+      checkError:false,
       listdata:[
-            {
-                label:'Làm bài tập nodejs',
-                done:true,
-                edit:false
-            },
-            {
-                label:'Làm bài tập XSTK',
-                done:true,
-                edit:false
-            },
-            {
-                label:'Làm bài tập c#',
-                done:true,
-                edit:false
-            },
-            {
-                label:'Làm bài tập Java',
-                done:false,
-                edit:false
-            },
-            {
-                label:'Xem cá hồi hoang',
-                done:false,
-                edit:false
-            },
-            {
-                label:'Edit video',
-                done:false,
-                edit:false
-            },
-            {
-                label:'Đi chơi',
-                done:false,
-                edit:false
-            },
-            {
-                label:'Đi hội an',
-                done:false,
-                edit:false
-            }
       ]
     }
   },
@@ -94,16 +57,17 @@ export default {
           this.$emit('changeAuthor',authorNew.value)
       },
       handleAddList(val){
-         if(this.listdata.find(item=>item.label===val)){
-           console.log('Da ton tai')
-         }
-         else {
-            this.listdata.push({
-            label:val,
-            done:false,
-            edit:false
-          })
-         }
+              if(this.listdata.find(item=>item.label===val)){
+              console.log('Da ton tai')
+              this.checkError=true
+            }
+            else {
+                this.listdata.push({
+                label:val,
+                done:false,
+                edit:false
+              })
+         }         
       },
       handleEdit(item){
          item.edit=true
@@ -119,6 +83,7 @@ export default {
         console.log(val)
          if(val===''){
             console.log('khong the them')
+            
         }
         else {
             console.log('co the them')
@@ -138,6 +103,13 @@ export default {
       handleDone(item){
         item.done=true
       }
+  },
+  computed:{
+    checkEmpty(){
+     if(this.listdata.length==0) return 'This is empty'
+        else return ''
+  
+    }
   },
   components:{
     CreateItem,
@@ -191,6 +163,10 @@ export default {
 }
 .icon-edit{
   background-color:#47a347;
+
+}
+.edit-active{
+    background-color:#1d5e2d;
 }
 .icon-delete{
   background-color:#ff0000;

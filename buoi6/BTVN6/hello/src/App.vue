@@ -80,6 +80,7 @@ export default {
   margin:0;
   font-family: 'Roboto', sans-serif;
   
+  
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -88,6 +89,9 @@ export default {
   text-align: center;
   color: black;
   margin-top: 60px;
+  width:100vw;
+  height:100%;
+ 
 }
 
 h1, h2 {

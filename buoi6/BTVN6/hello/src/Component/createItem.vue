@@ -9,6 +9,7 @@
               aria-label="What needs to be done ?"
               aria-describedby="button-addon2"
             />
+            <p  class="pl-1">{{checkValid}}</p>
             <hr/>
           </div>
           <div class='col-12 col-sm-2 col-md-2 col-lg-2'>
@@ -25,18 +26,46 @@ export default {
           type:String,
           require:false,
           default:null
+      },
+      checkError:{
+        type:Boolean,
+        require:false,
+        default:null
       }
+    
   },
   data () {
     return {
-      title: 'Hello Home',      
+      title: 'Hello Home',
+      error:false      
     }
   },
    methods:{
      addList(){
-          this.$emit('addList',this.newLabel)
-          this.newLabel=''
+          if((this.newLabel==='')){
+            this.error=true
+          }
+          else{
+             this.$emit('addList',this.newLabel)
+            this.newLabel=''
+            this.error=false
+          }
      }
   },
+ computed:{
+    checkValid(){
+     if(this.error) return 'This is not valid'
+     else if(this.checkError) return 'This label is exist'
+
+    }
 }
+}
+
+
 </script>
+<style >
+.p-l-1{
+  padding-left:10px;
+  color:red;
+}
+</style>

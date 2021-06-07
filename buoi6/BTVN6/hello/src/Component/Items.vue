@@ -1,13 +1,13 @@
 <template>
     <div>
          <div class="row list-small" v-for="item in lists" :key="item.label">
-
+                  
                   <div class="col-12 col-sm-8 col-md-8 col-lg-8">
                     <input type="checkbox" :checked="item.done" v-model="item.done">
                     <label for="" :class="item.done?'itemDone':''" @click="goDone(item)">{{item.label}}</label>
                   </div>
                   <div class="col-12 col-sm-4 col-md-4 col-lg-4 list-icon" style="display: flex;">
-                      <div class="icon icon-edit" @click="goEdit(item)">
+                      <div class="icon icon-edit" @click="goEdit(item)" :class="item.edit?'edit-active':''">
                         <i class="fas fa-edit"></i>
                       </div>
                       <div class="icon icon-delete" @click="goDelete(item.label)">
@@ -19,7 +19,7 @@
                      <input type="text" placeholder="Enter new label...." v-model="editLabel" class="form-control"  :style="item.edit?'display:block':'display:none'">
                   </div>
                   <div class="col-12 col-sm-4 col-md-4 col-lg-4 list-icon  mt-1" :style="item.edit?'display:flex':'display:none'">
-                      <div class="icon icon-edit" @click="goChangeLabel(item)">
+                      <div class="icon icon-edit" @click="goChangeLabel(item)"> 
                        <i class="fas fa-check"></i>
                       </div>
                       <div class="icon icon-delete" @click="goStopEdit(item)">
@@ -39,7 +39,8 @@ export default {
           type:Array,
           require:false,
           default:null
-      }
+      },
+     
   },
   data () {
     return {
@@ -64,7 +65,6 @@ export default {
       goDone(item){
           this.$emit('goDone',item)
       }
-     
   },
 }
 
