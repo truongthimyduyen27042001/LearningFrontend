@@ -3,7 +3,9 @@
     <div class="left-nav">
       <div class="logo-nav">
         <div class="logo-box"></div>
-        <div class="logo-brand">nu<span>ntium</span></div>
+        <div class="logo-brand" @click="$router.push('/')">
+          nu<span>ntium</span>
+        </div>
       </div>
       <div class="list-nav">
         <router-link to="/">Home</router-link>
@@ -11,7 +13,15 @@
         <router-link to="/blogs">Blogs</router-link>
       </div>
     </div>
-    <div class="right-nav"></div>
+    <div class="right-nav">
+      <button
+        type="button"
+        @click="$router.push('/auth/login')"
+        class="btn btn-outline-success"
+      >
+        Sign in
+      </button>
+    </div>
   </div>
 </template>
 
@@ -23,6 +33,7 @@ export default {};
 #nav {
   display: flex;
   justify-content: space-between;
+  cursor: pointer;
 }
 .logo-nav {
   position: relative;
@@ -64,5 +75,11 @@ export default {};
 }
 .right-nav svg {
   margin-right: 20px;
+}
+.right-nav button {
+  padding: 5px 20px;
+}
+.right-nav button:focus {
+  box-shadow: none !important;
 }
 </style>
