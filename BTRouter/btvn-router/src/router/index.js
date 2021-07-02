@@ -14,6 +14,7 @@ const routes = [
     path: "/about",
     name: "About",
     component: () => import("../views/About.vue"),
+    layout: "defaultLayout",
   },
   {
     path: "/blogs",
@@ -23,6 +24,21 @@ const routes = [
   {
     path: "/blog/:id",
     component: () => import("../views/BlogDetail.vue"),
+  },
+  {
+    path: "/auth/login",
+    component: () => import("../views/Login.vue"),
+    meta: { layout: "unauth" },
+  },
+  {
+    path: "/signup",
+    component: () => import("../views/Signup.vue"),
+    meta: { layout: "unauth" },
+  },
+  {
+    path: "/dashboard",
+    component: () => import("../views/Dashboard.vue"),
+    meta: { layout: "secret" },
   },
   {
     path: "*",

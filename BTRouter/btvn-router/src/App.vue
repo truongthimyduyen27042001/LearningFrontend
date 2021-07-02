@@ -17,10 +17,12 @@
 <script>
 import defaultLayout from "./layout/default.vue";
 import unauthLayout from "./layout/unauth.vue";
+import secretLayout from "./layout/secret.vue";
 export default {
   components: {
     defaultLayout,
     unauthLayout,
+    secretLayout,
   },
   data() {
     return {
@@ -32,9 +34,12 @@ export default {
   },
   computed: {
     layout() {
-      return this.$route.meta.layout === "unauth"
-        ? "unauthLayout"
-        : "defaultLayout";
+      // return this.$route.meta.layout === "unauth"
+      //   ? "unauthLayout"
+      //   : "defaultLayout";
+      if (this.$route.meta.layout === "unauth") return "unauthLayout";
+      else if (this.$route.meta.layout === "secret") return "secretLayout";
+      else return "defaultLayout";
     },
   },
 };
