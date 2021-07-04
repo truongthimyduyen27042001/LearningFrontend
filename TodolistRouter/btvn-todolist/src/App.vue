@@ -1,19 +1,42 @@
+/* eslint-disable no-unused-vars */
 <template>
   <div id="app">
-    <div id="nav">
+    <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
-    </div>
+    </div> -->
+    <!-- <component :is="layout">
       <transition name="slide-fade" mode="out-in">
-    <router-view />
+        <router-view />
       </transition>
+    </component> -->
+    <transition name="fade" mode="out-in">
+      <component :is="layout">
+        <transition name="slide-fade" mode="out-in">
+          <router-view />
+        </transition>
+      </component>
+    </transition>
   </div>
 </template>
 <script>
+// eslint-disable-next-line no-unused-vars
+import defaultLayout from "./layout/default.vue";
+// eslint-disable-next-line no-unused-vars
+import unauthLayout from "./layout/unauth.vue";
+
 export default {
-  components:{
-  }
-}
+  components: {
+    defaultLayout,
+    unauthLayout,
+  },
+  computed: {
+    layout() {
+      if (this.$route.meta.layout === "unauth") return "unauthLayout";
+      else return "defaultLayout";
+    },
+  },
+};
 </script>
 
 <style>
@@ -39,17 +62,18 @@ export default {
 #nav a.router-link-exact-active {
   color: #42b983;
 }
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
 }
 .slide-fade-enter-active {
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 .slide-fade-leave-active {
-  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
 }
 .slide-fade-enter, .slide-fade-leave-to
 /* .slide-fade-leave-active below version 2.1.8 */ {

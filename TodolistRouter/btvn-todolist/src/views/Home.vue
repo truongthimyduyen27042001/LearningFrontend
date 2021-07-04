@@ -4,65 +4,145 @@
     <h2>List User</h2>
 
     <!-- Trigger/Open The Modal -->
-    <button type="button" @click="addMore()" class="btn btn-outline-success">Thêm người dùng</button>
-    <div id="myModal" class="modal">
+    <button
+      type="button"
+      @click="active = true"
+      class="btn btn-outline-success"
+    >
+      Thêm người dùng
+    </button>
+    <div class="input-group mb-3 p-5">
+      <input
+        type="text"
+        class="form-control search"
+        placeholder="Enter Title"
+        aria-label="Recipient's username"
+        aria-describedby="basic-addon2"
+        v-model="searchTitle"
+      />
+      <button type="button" @click="search()" class="btn btn-success">
+        Success
+      </button>
+    </div>
+    <div
+      id="myModal"
+      class="modal"
+      :style="active ? 'display:block' : 'display:none'"
+    >
       <!-- Modal content -->
       <div class="modal-content">
         <div class="modal-heading">
           <h4>Điền thông tin vào form</h4>
-          <span class="close" @click="closerModel()">&times;</span>
+          <span class="close" @click="active = false">&times;</span>
         </div>
-        <form class="form-register"> 
+        <form class="form-register">
           <div class="mb-3">
             <label for="name" class="form-label">Tên khách hàng</label>
-            <input type="text" ref='uName' class="form-control" aria-describedby="emailHelp" required>
+            <input
+              type="text"
+              class="form-control"
+              aria-describedby="emailHelp"
+              v-model="name"
+              required
+            />
             <p class="error errorName">* Chưa nhập tên khách hàng</p>
           </div>
           <div class="mb-3">
             <label for="avatar" class="form-label">Hình ảnh</label>
-            <input type="text" ref='uAvatar' class="form-control" aria-describedby="emailHelp" required>
-             <p class="error errorName">* Chưa nhập hình ảnh khách hàng</p>
+            <input
+              type="text"
+              class="form-control"
+              aria-describedby="emailHelp"
+              v-model="avatar"
+              required
+            />
+            <p class="error errorName">* Chưa nhập hình ảnh khách hàng</p>
           </div>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Email</label>
-            <input type="text" ref='uEmail' class="form-control" aria-describedby="emailHelp" required>
+            <input
+              type="text"
+              class="form-control"
+              aria-describedby="emailHelp"
+              v-model="email"
+              required
+            />
             <p class="error errorName">* Chưa nhập email khách hàng</p>
           </div>
           <div class="mb-3">
             <label for="title" class="form-label">Tiêu đề</label>
-            <input type="text" ref='uTitle' class="form-control" aria-describedby="emailHelp" required>
+            <input
+              type="text"
+              class="form-control"
+              aria-describedby="emailHelp"
+              v-model="title"
+              required
+            />
             <p class="error errorName">* Chưa nhập tiêu đề</p>
           </div>
           <div class="mb-3">
             <label for="content" class="form-label">Nội dung</label>
-            <input type="text" ref='uContent' class="form-control" aria-describedby="emailHelp" required>
-           <p class="error errorName">* Chưa nhập nội dung</p>
+            <input
+              type="text"
+              class="form-control"
+              aria-describedby="emailHelp"
+              v-model="content"
+              required
+            />
+            <p class="error errorName">* Chưa nhập nội dung</p>
           </div>
           <div class="mb-3">
             <label for="time" class="form-label">Thời gian</label>
-            <input type="text" ref='uTime' class="form-control" aria-describedby="emailHelp" required>
-             <p class="error errorName">* Chưa nhập thời gian</p>
+            <input
+              type="text"
+              class="form-control"
+              aria-describedby="emailHelp"
+              v-model="time"
+              required
+            />
+            <p class="error errorName">* Chưa nhập thời gian</p>
           </div>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Địa điểm</label>
-            <input type="text" ref='uAddress' class="form-control" aria-describedby="emailHelp" required>
-             <p class="error errorName">* Chưa nhập địa điểm</p>
+            <input
+              type="text"
+              class="form-control"
+              aria-describedby="emailHelp"
+              v-model="address"
+              required
+            />
+            <p class="error errorName">* Chưa nhập địa điểm</p>
           </div>
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Mô tả nội dung công việc</label>
-            <input type="text" ref='uDecript' class="form-control" aria-describedby="emailHelp" required>
-             <p class="error errorName">* Chưa nhập mô tả nội dung</p>
+            <label for="exampleInputEmail1" class="form-label"
+              >Mô tả nội dung công việc</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              aria-describedby="emailHelp"
+              v-model="description"
+              required
+            />
+            <p class="error errorName">* Chưa nhập mô tả nội dung</p>
           </div>
-          <button type="submit" class="btn btn-primary" @click="addUser()">Submit</button>
+          <button type="submit" class="btn btn-primary" @click="addUser()">
+            Submit
+          </button>
         </form>
       </div>
     </div>
     <!-- end check -->
     <!-- announcement -->
-    <div class="annoucement"> 
-      <h2>{{isNull}}</h2>
+    <div class="annoucement">
+      <h2>{{ isNull }}</h2>
     </div>
-    <div class="list-to-do cotainer" v-for="user in users" :key="user.id" @click='gotoDetail(user.id)'>
+    <div
+      class="list-to-do cotainer"
+      v-for="user in users"
+      :key="user.id"
+      @click="gotoDetail(user.id)"
+    >
       <div class="list-small-right">
         <img class="img-hover" :src="user.avatar" alt="" />
       </div>
@@ -98,51 +178,59 @@ export default {
   },
   data() {
     return {
-      hehe: "Truong thi my duyen",
+      name: "",
+      email: "",
+      time: "",
+      avatar: "",
+      title: "",
+      content: "",
+      address: "",
+      description: "",
+      active: false,
+      searchTitle: "",
       users: 0,
     };
   },
   methods: {
-    
-    async addUser(){
-      const response = await axios.post('https://60dc2b83c2b6280017feb762.mockapi.io/todolist/lists', {
-        name: this.$refs.uName.value,
-        avatar:this.$refs.uAvatar.value,
-        title:this.$refs.uTitle.value,
-        content:this.$refs.uContent.value,
-        time:'2063-06-21T04:47:45.605',
-        address:this.$refs.uAddress.value,
-        email:this.$refs.uEmail.value,
-        description:this.$refs.uDecript.value
-      })
-      .then(function (response) {
-        console.log(response);
-        location.reload();
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-    this.users = response.data;
+    async addUser() {
+      const response = await axios
+        .post("https://60dc2b83c2b6280017feb762.mockapi.io/todolist/lists", {
+          name: this.name,
+          avatar: this.avatar,
+          title: this.title,
+          content: this.content,
+          time: this.time,
+          address: this.address,
+          email: this.email,
+          description: this.description,
+        })
+        .then(function (response) {
+          console.log(response);
+          location.reload();
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      this.users = response.data;
     },
-    addMore() {
-      var modal = document.getElementById("myModal");
-      modal.style.display = "block";
+    gotoDetail(id) {
+      this.$router.push("/inforuser/" + id);
     },
-    closerModel() {
-      var modal = document.getElementById("myModal");
-      modal.style.display = "none";
+    async search() {
+      const response = await axios.get(
+        "https://60dc2b83c2b6280017feb762.mockapi.io/todolist/lists?title=" +
+          this.searchTitle
+      );
+      this.users = response.data;
     },
-    gotoDetail(id){
-      this.$router.push('/inforuser/'+id)
-    }
   },
   components: {},
-  computed:{
-    isNull(){
-      if (this.users.length===0) return 'Không tồn tại người dùng'
-      else return ''
+  computed: {
+    isNull() {
+      if (this.users.length === 0) return "Không tồn tại người dùng";
+      else return "";
     },
-  }
+  },
 };
 </script>
 
@@ -151,6 +239,9 @@ export default {
 * {
   padding: 0px;
   margin: 0px;
+}
+.home {
+  padding: 30px 0px;
 }
 #btn-add {
   margin-bottom: 20px;
@@ -178,11 +269,11 @@ export default {
 .list-small-right {
   background: rgb(97, 92, 92);
   cursor: pointer;
-  width:30%;
+  width: 30%;
 }
 .list-small-right img {
-  width:80%;
-  padding:none;
+  width: 80%;
+  padding: none;
 }
 .list-small-left {
   padding: 30px 10px;
@@ -190,7 +281,7 @@ export default {
   background-color: #f4f4f4;
   margin-left: 5px;
   cursor: pointer;
-  width:70%;
+  width: 70%;
 }
 .list-small-title {
   font-family: "Libre Franklin", sans-serif;
@@ -233,11 +324,11 @@ export default {
   background-color: rgb(0, 0, 0); /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
-.btn-outline-success{
+.btn-outline-success {
   margin-bottom: 20px;
 }
-.btn-outline-success:focus{
-  box-shadow:none!important;
+.btn-outline-success:focus {
+  box-shadow: none !important;
 }
 
 /* Modal Content */
@@ -247,17 +338,16 @@ export default {
   padding: 40px;
   border: 1px solid #888;
   width: 50%;
-
 }
-.modal-heading{
-  display:flex;
+.modal-heading {
+  display: flex;
   justify-content: space-between;
 }
-.form-register{
+.form-register {
   text-align: left;
 }
-.error{
-  color:red;
+.error {
+  color: red;
   display: none;
 }
 /* The Close Button */
@@ -273,6 +363,10 @@ export default {
   text-decoration: none;
   cursor: pointer;
 }
+.search {
+  width: 45vw !important;
+  flex: none !important;
+  margin: auto;
+}
 /* neu khong co ai thi hien thi thong bao  */
-
 </style>
