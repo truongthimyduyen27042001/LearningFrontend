@@ -220,6 +220,7 @@ button:focus {
 }
 .control {
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 .control button {
   margin-right: 10px;
