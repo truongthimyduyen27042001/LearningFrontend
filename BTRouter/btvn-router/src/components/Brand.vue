@@ -1,22 +1,23 @@
 <template>
   <div class="brand">
-      <div class="logo-nav">
-        <div class="logo-box"></div>
-        <div class="logo-brand">nu<span>ntium</span></div>
-      </div>
+    <div @click="$router.push('/')" class="logo-nav">
+      <div class="logo-box"></div>
+      <div class="logo-brand">nu<span>ntium</span></div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-    name: "Brand",
-}
+  name: "Brand",
+};
 </script>
 
 <style scoped>
 .logo-nav {
   position: relative;
   display: flex;
+  cursor: pointer;
 }
 .logo-box {
   width: 58px;

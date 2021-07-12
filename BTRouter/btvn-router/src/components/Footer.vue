@@ -21,7 +21,7 @@ export default {};
   --difference-color: #fafafa;
 }
 .footer {
-  width: 95%;
+  width: 100%;
   margin: auto;
   background-color: #1c1c1c;
   padding-top: 80px;

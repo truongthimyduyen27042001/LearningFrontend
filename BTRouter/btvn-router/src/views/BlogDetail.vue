@@ -1,42 +1,64 @@
 <template>
-  <div class="blogDetail">
-    <div class="blog-detail-img">
-      <img
-        src="https://images.unsplash.com/photo-1460398160830-bd2f5309bea9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=738&q=80"
-        alt=""
-      />
-    </div>
-    <div class="blog-detail-content">
-      <div class="blog-detail-inner">
-        <div class="blog-detail-title">
-          {{ this.activeBlog.title }}
-        </div>
-        <div class="blog-detail-address">
-          {{ this.activeBlog.address }} <span>{{ this.activeBlog.time }}</span>
-        </div>
-        <div class="blog-detail-tags">#technology#tech#carrer</div>
-        <div class="blog-detail-content-inner">
-          <p>
-            {{ this.activeBlog.text }}
-          </p>
-        </div>
+  <div>
+    <div v-if="loading" class="loading">Loading...</div>
+    <div v-else class="blogDetail">
+      <div class="blog-detail-img">
+        <img
+          src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+          alt=""
+        />
       </div>
-      <div class="blog-detail-author">
-        <h2 class="about-content">About the author</h2>
-        <div class="about-author">
-          <div class="left-author">
-            <img
-              src="https://images.unsplash.com/photo-1506751470038-e579eb91f580?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80"
-              alt=""
-            />
+      <div class="blog-detail-content">
+        <div class="blog-detail-inner">
+          <div class="blog-detail-title">{{ blog.title }}</div>
+          <div class="blog-detail-address">
+            {{ blog.address }}<span>{{ blog.time }}</span>
           </div>
-          <div class="right-author">
-            <div class="name-author">Arthur Black</div>
-            <div class="tag-author">@arthurblack</div>
-            <div class="about-author-text">
-              Ipsum adipisicing culpa est nisi consequat ex amet magna culpa
-              veniam tempor irure ea. Reprehenderit labore do tempor eiusmod in
-              consectetur ex sunt id mollit commodo ipsum deserunt quis.
+          <div class="blog-detail-tags">#technology#tech#carrer</div>
+          <div class="blog-detail-content-inner">
+            <p>
+              Commodo labore ut nisi laborum amet eu qui magna ullamco ut
+              labore. Aliquip consectetur labore consectetur dolor exercitation
+              est minim quis. Magna non irure qui ex est laborum nulla excepteur
+              qui. Anim Lorem dolore cupidatat pariatur ex tempor. Duis ea
+              excepteur proident ex commodo irure est. Nisi commodo qui pariatur
+              enim sint laborum consequat enim in officia. Officia fugiat
+              incididunt commodo et mollit aliqua non aute. Enim dolor eiusmod
+              aliqua amet ipsum in enim eiusmod. Quis exercitation sit velit
+              duis. Est Lorem labore consectetur minim sit eu eiusmod mollit
+              velit. Consectetur voluptate ex amet id eiusmod laborum irure.
+              Aliquip ad qui id exercitation irure amet commodo nisi quis.
+              Occaecat minim incididunt eiusmod nostrud veniam quis culpa. Nisi
+              ipsum et consequat id deserunt excepteur. Cillum non pariatur
+              culpa ut occaecat laboris eu. Ullamco ad Lorem et elit laboris eu
+              qui irure nulla qui culpa et. Cupidatat sunt ipsum proident aute
+              exercitation do tempor aliqua cupidatat quis non exercitation.
+              Adipisicing do minim dolore nulla mollit. Adipisicing incididunt
+              irure ipsum et in esse ipsum elit tempor. Aliquip mollit sunt qui
+              irure. Irure ullamco Lorem excepteur dolor qui ea ad quis. Enim
+              fugiat cillum enim ad occaecat sint qui elit labore mollit sunt
+              laborum fugiat consequat. Voluptate labore sunt duis eu deserunt.
+              Occaecat do ut ut labore cillum enim dolore ad enim enim id.
+              Aliquip do veniam ad excepteur ad cillum qui deserunt nostrud sunt
+              aliqua duis sunt occaecat. Laborum incididunt commodo ullamco
+              proident quis.
+            </p>
+          </div>
+        </div>
+        <div class="blog-detail-author container">
+          <h2 class="about-content">About the author</h2>
+          <div class="about-author row">
+            <div class="col-12 col-sm-4 left-author">
+              <img :src="blog.thumbnail" alt="" />
+            </div>
+            <div class="col-12 col-sm-8 right-author">
+              <div class="name-author">Arthur Black</div>
+              <div class="tag-author">@arthurblack</div>
+              <div class="about-author-text">
+                Ipsum adipisicing culpa est nisi consequat ex amet magna culpa
+                veniam tempor irure ea. Reprehenderit labore do tempor eiusmod
+                in consectetur ex sunt id mollit commodo ipsum deserunt quis.
+              </div>
             </div>
           </div>
         </div>
@@ -46,50 +68,29 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "BlogDetail",
-  created() {
-    console.log(this.activeBlog);
+  async created() {
+    await axios
+      .get("http://localhost:3000/blogs/" + this.$route.params.id)
+      .then((response) => {
+        this.blog = response.data;
+        this.loading = false;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
   data() {
     return {
-      blogList: [
-        {
-          id: "1",
-          technology: "MINIMALISM",
-          title: "Culpa sit Laboris Exercitation ea Fugiat",
-          address: "Leslie Pena",
-          time: "April 25, 2012 (6 mins read)",
-          thumbnail:
-            "https://www.simplilearn.com/ice9/free_resources_article_thumb/Artificial-Intelligence-and-Machine-Learning-Technologies.jpg",
-          text: "LeIncididunt occaecat et qui dolore consectetur Incididunt occaecat et qui dolore consectetur magna. Lorem veniam ut et labore consequat ut ex sunt. Ut et nostrud aliquip do anim proident ad nulla consectetur eu aute ex anim mollit. Anim aute exercitation nisi fugiat. Dolor velit excepteur commodo proident nulla commodo ullamco labore et esse.",
-        },
-        {
-          id: "2",
-          technology: "Technology",
-          title: "Amet non Ex Officia nulla Cupidatat",
-          address: "Jacob Henry",
-          time: "September 27, 2017 (8 mins read)",
-          thumbnail:
-            "https://www.thuatngumarketing.com/wp-content/uploads/2018/01/infotech.jpg",
-          text: "Sint anim Lorem aute duis Lorem incididunt. Nulla nostrud irure id ipsum aute excepteur duis sint. Do occaecat sit dolor magna esse. Mollit incididunt cillum consectetur fugiat adipisicing dolor est id minim amet cillum esse Lorem. Deserunt non duis excepteur aliqua duis eu reprehenderit.",
-        },
-        {
-          id: "3",
-          technology: "Article",
-          title: "Dolor ex Tempor Cotur Culpa li",
-          address: "Darrell Lane",
-          time: "May 16, 2017 (3 mins read)",
-          thumbnail:
-            "https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX39035597.jpg",
-          text: "Incididunt sint nulla eu adipisicing eu reprehenderit proident consequat est. Nisi consectetur incididunt mollit officia ut cupidatat laborum proident eu velit Lorem deserunt deserunt voluptate. Proident nostrud laborum reprehenderit culpa irure id labore do ad do minim nisi. Incididunt ex.",
-        },
-      ],
+      blog: 0,
+      loading: false,
     };
   },
   computed: {
     activeBlog() {
-      return this.blogList.find((i) => i.id === this.$route.params.id);
+      return 1;
     },
   },
 };
@@ -102,7 +103,8 @@ export default {
   font-family: "Open Sans", sans-serif;
 }
 .blog-detail-img {
-  width: 100vw;
+  width: 100%;
+  overflow: hidden;
 }
 .blog-detail-img img {
   width: 95%;
@@ -164,6 +166,7 @@ ul {
 .blog-detail-author {
   width: 50%;
   margin: auto;
+  padding-bottom: 30px;
 }
 .about-author {
   display: flex;

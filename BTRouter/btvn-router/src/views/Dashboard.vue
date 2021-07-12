@@ -17,17 +17,17 @@
       </div>
     </div>
     <div class="dash-board-box">
-      <div class="total">
+      <div class="box-small total">
         <div class="box-title"><h4>Total Pots</h4></div>
         <div class="box-amount">
           <i class="fas fa-pen"></i>
           <div class="amount"><h4>214</h4></div>
         </div>
-        <div class="box-time">
+        <div class="box-small box-time">
           <p>This month</p>
         </div>
       </div>
-      <div class="total total-views">
+      <div class="box-small total total-views">
         <div class="box-title"><h4>Total Views</h4></div>
         <div class="box-amount">
           <i class="fas fa-eye"></i>
@@ -134,6 +134,10 @@ export default {};
   font-weight: 700;
   line-height: 25px;
 }
+.dash-board-views .title{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 .dash-board-views-img {
   height: 55vh;
   overflow: hidden;
@@ -143,5 +147,14 @@ export default {};
   height: 100%;
   object-fit: cover;
   cursor: pointer;
+}
+/* responsive */
+@media screen and (max-width: 1255px) {
+  .dash-board-box {
+    flex-direction: column;
+  }
+  .box-small {
+    margin-bottom: 20px;
+  }
 }
 </style>

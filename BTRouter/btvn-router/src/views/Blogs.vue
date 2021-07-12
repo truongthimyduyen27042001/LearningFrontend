@@ -9,18 +9,20 @@
       <div class="content">
         <h2>Editor's Picks</h2>
       </div>
-      <div id="blog-list" class="container">
+      <div class="blog-list container">
+        <div v-if="loading" class="loading">Loading...</div>
         <div
+          v-else
           class="blog-small container"
-          v-for="blog in blogList"
+          v-for="blog in blogs"
           :key="blog.id"
-          @click="$router.push('/blog/' + blog.id)"
+          @click="$router.push('/blogs/' + blog.id)"
         >
-          <div class="row">
-            <div class="left-blog-small col-12 col-md-6 col-lg-6">
-              <img :src="blog.thumbnail" alt="" />
+          <div class="row gx-2">
+            <div class="left-blog-small col-12 col-md-12 col-lg-5">
+              <img :src="blog.thumbnail" alt="hinhanh" />
             </div>
-            <div class="right-blog-small col-12 col-md-6 col-lg-6">
+            <div class="right-blog-small col-12 col-md-12 col-lg-7">
               <h3 class="technology">{{ blog.technology }}</h3>
               <h2 class="blog-small-title">
                 {{ blog.title }}
@@ -36,6 +38,15 @@
           </div>
         </div>
       </div>
+
+      <!-- pagination -->
+      <div class="card-footer pb-0 pt-3">
+        <jw-pagination
+          :items="exampleItems"
+          @changePage="onChangePage"
+        ></jw-pagination>
+      </div>
+      <!-- end pagination -->
     </div>
     <div class="blog-load">
       <div class="blog-article">
@@ -92,179 +103,46 @@
 </template>
 
 <script>
-// @ is an alias to /src
 
+import axios from "axios";
+// @ is an alias to /src
 export default {
   name: "Blogs",
+  async created() {
+    // this.loading = true;
+    // const response = await axios.get("http://localhost:3000/blogs");
+    // // const responseTag = await axios.get("http://localhost:3000/tagList");
+    // // const responseArticle = await axios.get("http://localhost:3000/articles");
+    // // this.blogs = response.data;
+    // // this.tagList = responseTag.data;
+    // // this.articles = responseArticle.data;
+    // this.exampleItems = response.data;
+    this.loading = true;
+    await axios
+      .get("http://localhost:3000/blogs")
+      .then((response) => {
+        this.exampleItems = response.data;
+        this.loading = false;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
   data() {
     return {
-      blogList: [
-        {
-          id: "1",
-          technology: "MINIMALISM",
-          title: "Culpa sit Laboris Exercitation ea Fugiat",
-          address: "Leslie Pena",
-          time: "April 25, 2012 (6 mins read)",
-          thumbnail:
-            "https://www.simplilearn.com/ice9/free_resources_article_thumb/Artificial-Intelligence-and-Machine-Learning-Technologies.jpg",
-          text: "LeIncididunt occaecat et qui dolore consectetur Incididunt occaecat et qui dolore consectetur magna. Lorem veniam ut et labore consequat ut ex sunt. Ut et nostrud aliquip do anim proident ad nulla consectetur eu aute ex anim mollit. Anim aute exercitation nisi fugiat. Dolor velit excepteur commodo proident nulla commodo ullamco labore et esse.",
-        },
-        {
-          id: "2",
-          technology: "Technology",
-          title: "Amet non Ex Officia nulla Cupidatat",
-          address: "Jacob Henry",
-          time: "September 27, 2017 (8 mins read)",
-          thumbnail:
-            "https://www.thuatngumarketing.com/wp-content/uploads/2018/01/infotech.jpg",
-          text: "Sint anim Lorem aute duis Lorem incididunt. Nulla nostrud irure id ipsum aute excepteur duis sint. Do occaecat sit dolor magna esse. Mollit incididunt cillum consectetur fugiat adipisicing dolor est id minim amet cillum esse Lorem. Deserunt non duis excepteur aliqua duis eu reprehenderit.",
-        },
-        {
-          id: "3",
-          technology: "Article",
-          title: "Dolor ex Tempor Cotur Culpa li",
-          address: "Darrell Lane",
-          time: "May 16, 2017 (3 mins read)",
-          thumbnail:
-            "https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX39035597.jpg",
-          text: "Incididunt sint nulla eu adipisicing eu reprehenderit proident consequat est. Nisi consectetur incididunt mollit officia ut cupidatat laborum proident eu velit Lorem deserunt deserunt voluptate. Proident nostrud laborum reprehenderit culpa irure id labore do ad do minim nisi. Incididunt ex.",
-        },
-      ],
-      tagList: [
-        {
-          id: "1",
-          title: "Technology",
-        },
-        {
-          id: "2",
-          title: "Open Sourece",
-        },
-        {
-          id: "3",
-          title: "avaScript",
-        },
-        {
-          id: "4",
-          title: "Mininalism",
-        },
-        {
-          id: "5",
-          title: "Selft-help",
-        },
-        {
-          id: "6",
-          title: "Animals",
-        },
-        {
-          id: "7",
-          title: "Herbiviores",
-        },
-        {
-          id: "8",
-          title: "HTML",
-        },
-        {
-          id: "9",
-          title: "CSS",
-        },
-        {
-          id: "10",
-          title: "PHP",
-        },
-        {
-          id: "11",
-          title: "Web Technologies",
-        },
-        {
-          id: "12",
-          title: "Carrer",
-        },
-        {
-          id: "13",
-          title: "Life",
-        },
-        {
-          id: "14",
-          title: "Spirtuality",
-        },
-        {
-          id: "15",
-          title: "Food",
-        },
-        {
-          id: "16",
-          title: "Cooking",
-        },
-        {
-          id: "17",
-          title: "Sports",
-        },
-        {
-          id: "18",
-          title: "Racing",
-        },
-        {
-          id: "19",
-          title: "Mountain Hiking",
-        },
-        {
-          id: "20",
-          title: "Cruising",
-        },
-      ],
-      articles: [
-        {
-          id: "1",
-          technology: "NATURE",
-          title: "Tempor deserunt Sunt Qui",
-          address: "Connie Robertson",
-          time: "November 3, 2012",
-          thumbnail:
-            "https://images.unsplash.com/photo-1559466451-fc1e9f378c46?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80g",
-          text: "Ea qui dolor aute cupidatat ad pariatur proident. Mollit nulla tempor aute reprehenderit ut dolore mollit nisi consequat excepteur ex officia pariatur irure.",
-        },
-        {
-          id: "2",
-          technology: "PLANTS",
-          title: "Occaecat Anim eu Qui",
-          address: "Eleanor Williamson",
-          time: "September 28, 2014",
-          thumbnail:
-            "https://images.unsplash.com/photo-1565789570848-7a4b39090d21?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
-          text: "Qui ipsum consectetur ad incididunt et aliquip exercitation laboris nisi reprehenderit. Et excepteur commodo esse enim ea aliqua officia reprehenderit.",
-        },
-        {
-          id: "3",
-          technology: "FOOD",
-          title: "Fugiat Incididunt Voluptate Consequat",
-          address: "Bessie Watson",
-          time: "June 13, 2012",
-          thumbnail:
-            "https://images.unsplash.com/photo-1565789570845-1f9a4142a5f3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80",
-          text: "Mollit ea culpa ipsum pariatur eiusmod. Irure et.",
-        },
-        {
-          id: "4",
-          technology: "COLORFUL",
-          title: "Occaecat Anim eu Qui",
-          address: "Ted Simmmons",
-          time: "June 21, 2015",
-          thumbnail:
-            "https://images.unsplash.com/photo-1565789570481-f7bc45817eaf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=751&q=80",
-          text: "Amet ipsum occaecat aliqua aute nisi laboris nostrud culpa est do. Aliqua esse velit in excepteur esse qui voluptate laboris adipisicing qui irure elit amet excepteur.",
-        },
-        {
-          id: "5",
-          technology: "COLORFUL",
-          title: "Occaecat Anim eu Qui",
-          address: "Ted Simmmons",
-          time: "June 21, 2015",
-          thumbnail:
-            "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=749&q=80",
-          text: "Amet ipsum occaecat aliqua aute nisi laboris nostrud culpa est do. Aliqua esse velit in excepteur esse qui voluptate laboris adipisicing qui irure elit amet excepteur.",
-        },
-      ],
+      blogs: [],
+      tagList: 0,
+      articles: 0,
+      exampleItems: [],
+      blogdemo: 0,
+      loading: false,
+      search: "",
     };
+  },
+  methods: {
+    onChangePage(blogs) {
+      this.blogs = blogs;
+    },
   },
 };
 </script>
@@ -275,6 +153,10 @@ export default {
   padding: 0px;
   margin: 0px;
   font-family: "Open Sans", sans-serif;
+}
+.blog-intro {
+  width: 100%;
+  overflow: hidden;
 }
 img {
   cursor: pointer;
@@ -304,6 +186,10 @@ img {
   transform: translateX(-95px);
   margin-top: 20px;
 }
+.blog-list {
+  width: 70%;
+  margin: 80px auto;
+}
 .blog-small {
   margin-bottom: 4rem;
 }
@@ -324,7 +210,7 @@ img {
   align-items: center;
 }
 .left-blog-small img {
-  width: 90%;
+  width: 250px;
   object-fit: contain;
 }
 .right-blog-small {
@@ -332,7 +218,6 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 430px;
 }
 .technology {
   font-weight: 400;
@@ -359,7 +244,6 @@ img {
   font-size: 16px;
   line-height: 21.79px;
   color: rgba(28, 28, 28, 0.5);
-  padding-bottom: 30px;
 }
 .blog-small-text {
   font-style: normal;
@@ -368,8 +252,14 @@ img {
   line-height: 24px;
   color: #000000;
 }
+.card-footer {
+  background-color: transparent;
+  border: transparent;
+}
 .blog-load {
-  width: 100vw;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 30px;
 }
 .blog-article {
   width: 100%;
@@ -449,5 +339,36 @@ ul {
   font-size: 16px;
   line-height: 45px;
   color: rgba(0, 0, 0, 1);
+}
+/* pagination  */
+button.page-link {
+  display: inline-block;
+}
+button.page-link {
+  font-size: 20px;
+  color: #29b3ed;
+  font-weight: 500;
+}
+.offset {
+  width: 500px !important;
+  margin: 20px auto;
+}
+/* responsive */
+@media screen and (max-width: 1255px) {
+  .blog-article-small {
+    top: auto;
+    left: auto;
+  }
+}
+@media screen and (max-width: 996px) {
+  .blog-article-small {
+    display: none;
+  }
+  .left-blog-small img {
+    width: 100%;
+  }
+  .right-blog-small {
+    margin-top: 50px;
+  }
 }
 </style>
